@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://result-management.database.windows.net:1433;database=result_management_minor_project;user=Ashish@result-management;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: Ashish
+    password: Shivushish@123
+  jpa:
+   show-sql: true
+   hibernate:
+     ddl-auto: update
+     dialect :  org.hibernate.dialect.SQLServer2012Dialect
+   
+server.port: 9191

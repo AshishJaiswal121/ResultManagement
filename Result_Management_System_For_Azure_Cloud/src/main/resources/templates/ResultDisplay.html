@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/result.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align:center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.tab tr:nth-child(even){
+background-color:white;
+}
+.t2 tr:nth-child(even){
+background-color:#FFFACD;
+}
+</style>
+</head>
+<body>
+<div class="card" style="width:900px;margin-left:200px;margin-top:50px;background-color:#AFEEEE;">
+  <div class="card-header res">
+ Highter Secondary School Certificate Examination (HSSC)-12th Class Result-2022
+  </div>
+  <div class="card-body">
+  <table class="table">
+  <tr >
+    <th>Centre Code </th>
+    <th>School Code </th>
+    <th>Regular/Private </th>
+   <th> Date of Brith</th>
+    <th>RollNumber  </th>
+  </tr>
+  <tr>
+    <td>AP06119</td>
+    <td>HSSC0009518</td>
+    <td>Regular</td>
+     <td th:text="${studentResultRecord.dob}"></td>
+     <td th:text="${studentResultRecord.rollno}"></td>
+  </tr>
+  </table>
+  <table class="tab" style="width:600px;margin-left:130px;">
+
+ 
+  <tr>
+    <th>Student Name </th>
+   <td th:text="${studentResultRecord.name}"></td>
+   
+  </tr>
+   <tr >
+    <th>Board</th>
+    <td>Madhya Pradesh Board of Secondary Education</td>
+   
+  </tr>
+ 
+   
+  </table>
+   
+    <table class="t2" style="margin-top:10px;margin-left:50px;">
+  <tr >
+    <th>Subject Code</th>
+    <th>Subject Name </th>
+    <th>Theory Marks </th>
+    <th>Practical Internal Marks </th>
+     <th>Total Marks</th>
+      <th>Remarks</th>
+  </tr>
+  <tr>
+    <td>MPB001</td>
+    <td>Maths</td>
+    <td th:text="${studentResultRecord.maths}"></td>
+     <td th:text="${allPracticalMarks.mathsMarks}"></td>
+   <td th:text="${grandTotal.mathsTotal}"></td>
+       <td th:text="${remarkStatus.mathsPass}"></td>
+  </tr>
+   <tr>
+    <td>MPB002</td>
+    <td>Physics</td>
+    <td th:text="${studentResultRecord.physics}"></td>     
+   <td th:text="${allPracticalMarks.physicsMarks}"></td>
+        <td th:text="${grandTotal.physicsTotal}"></td>
+      <td th:text="${remarkStatus.physicsPass}"></td>
+  </tr>
+   <tr>
+    <td>MPB003</td>
+    <td>Chemistry</td>
+    <td th:text="${studentResultRecord.chemistry}"></td>
+   <td th:text="${allPracticalMarks.chemistryMarks}"></td>
+      <td th:text="${grandTotal.chemistryTotal}"></td>
+      <td th:text="${remarkStatus.chemistryPass}"></td>
+  </tr>
+   <tr>
+    <td>MPB004</td>
+    <td>Hindi</td>
+    <td th:text="${studentResultRecord.hindi}"></td>
+     <td th:text="${allPracticalMarks.hindiMarks}"></td>
+      <td th:text="${grandTotal.hindiTotal}"></td>
+     <td th:text="${remarkStatus.hindiPass}"></td>
+  </tr>
+   <tr>
+    <td>MPB005</td>
+    <td>English</td>
+    <td th:text="${studentResultRecord.english}"></td>
+     <td th:text="${allPracticalMarks.englishMarks}"></td>
+      <td th:text="${grandTotal.englishTotal}"></td>
+      <td th:text="${remarkStatus.englishPass}"></td>
+  </tr>
+  </table>
+  <table style="width:765px;text-align:center;margin-left:50px;">
+  <tr >
+   <td style="color:red;font-size:18px;font-weight:500;margin-left:60px;font-family:Times New Roman, Times, serif;" th:text="'Result     :    '+${total}"></td>
+    <th>Grand Total(Theory +Practical Marks): <td th:text="${grandTotal.grandTotal}+
+    ' out of 500' "></td></th>
+   
+  </tr>
+  </table>
+   
+  
+  </table>
+  </div>
+</div></body>
+</html>
